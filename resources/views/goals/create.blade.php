@@ -19,13 +19,13 @@
 
 			{!! Form::open(['route' => 'goals.store', 'data-parsley-validate' => '']) !!}
 				{{Form::label('goal_title', 'Title:')}}
-				{{Form::text('goal_title', null, ['class' => 'form-control', 'required'=>'', 'maxlength'=>'255'])}}
+				{{Form::text('goal_title', null, ['class' => 'input-field', 'required'=>'', 'maxlength'=>'255'])}}
 
 				{{Form::label('description', 'Description:')}}
-				{{Form::textarea('description', null, ['class'=>'form-control'])}}
+				{{Form::textarea('description', null, ['class'=>'input-field'])}}
 
 				{{Form::label('target_amount', 'Set Target Amount:')}}
-				{{Form::number('target_amount', null, ['class'=>'form-control', 'required'=>''])}}
+				{{Form::number('target_amount', null, ['class'=>'input-field', 'required'=>''])}}
 
 				{{Form::label('target_date', 'Set Target Date:')}}
 				{{Form::date('target_date', \Carbon\Carbon::now(), ['class'=>'datepicker'])}}

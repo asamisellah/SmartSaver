@@ -45,7 +45,12 @@
 	            		</div>
 	            		<div class="col s12 m6">
 
-	            			{!! Html::linkRoute('goals.destroy', 'Delete', array($goal->id), array('class'=>'waves-effect waves-light btn red')) !!}
+	            			{!! Form::open(['route' => ['goals.destroy', $goal->id], 'method' => 'DELETE']) !!}
+
+
+	            				{!! Form::submit('Delete', ['class '=> 'waves-effect waves-light btn red']) !!}
+
+	            			{!! Form::close() !!}
 	            			
 	            		</div>
 	            	</div>      
