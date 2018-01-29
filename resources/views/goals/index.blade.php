@@ -1,4 +1,4 @@
-@extends('layouts.main')
+@extends('layouts.login_main')
 
 @section('title', 'All goals')
 
@@ -47,6 +47,11 @@
 
 		        </tbody>
 		      </table>
+
+		      <div class="text-center">
+		      	{!! $goals->links(); !!}
+
+		      </div>
 		</div>
 	</div>
 

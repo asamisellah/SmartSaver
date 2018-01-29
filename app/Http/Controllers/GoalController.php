@@ -18,7 +18,12 @@ class GoalController extends Controller
     {
         // create a variable and store all the goals in it from the database
 
-        $goals = Goal::all();
+        // $goals = Goal::all();
+
+        // This uses eloquent ORM to do pagination
+        $goals = Goal::orderBy('id', 'desc')->paginate(2);
+
+
 
         // return a view and pass in all the above variable
 

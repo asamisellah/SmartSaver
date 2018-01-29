@@ -10,36 +10,26 @@
 
 <body>
 
-	<header>
+	{{-- Nav-bar --}}
 
+	<header>
+		
 		@include('partials._nav')
 
 	</header>
+
+	{{-- Main content --}}
 	
 	<main>
 
-		<div class="row">
 			
-			<div class="col s12 m4 l3" id="side-nav">
-
-				{{-- @include('partials._sidenav') --}}
-
-			</div>
-
-			<div class="col s12 m8 l9" id="content">
-			
-				@yield('content')
-
-			</div>
-
-			@include('partials._messages')
-
-		</div>
+		@yield('content')
 
 
 	</main>
 
-	
+	{{-- Footer --}}
+
 	@include('partials._footer')
 
 	
