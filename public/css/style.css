@@ -1,5 +1,5 @@
 nav{ 
-	background-color: #fe0e06;
+	background-color: #359AB0;
 	z-index: 50;
 	box-shadow: 0px 0px 200px 0px; 
 	padding-right:  100px;
@@ -48,6 +48,11 @@ nav{
     padding: 20px;
 }
 
+@media (max-width: 800px) {
+    #intro {
+        height: 600px;
+    }
+}
 
 .flex-container{
 	display: flex;
@@ -55,6 +60,123 @@ nav{
 	flex-direction: column;
 	justify-content: center;	
 
+}
+
+.content-div{
+	width: 100%;
+	height: 600px;
+	padding: 50px 100px;
+}
+
+@media (max-width: 800px) {
+    .content-div{
+        -ms-flex: 50%;
+        flex: 100%;
+        height: 100%;
+        padding: 5px 1px;
+    }
+}
+
+#about .section{
+	flex-direction: row;
+}
+
+#about .section div{
+	height: 200px;
+	width: 50%;
+	padding: 5px 10px;
+}
+
+@media (max-width: 800px) {
+    #about .section div {
+        -ms-flex: 50%;
+        flex: 100%;
+        height: 100%;
+        padding: 5px 1px;
+    }
+}
+
+#about .col {
+    max-width: 25%;
+    padding: 0px 4px;
+}
+
+#about .col img{
+	box-shadow: 0px 0px 5px 0px;
+}
+
+@media (max-width: 800px) {
+    #about .section .row {
+        -ms-flex: 50%;
+        flex: 50%;
+        height: 50%;
+        padding: 10px 50px;
+    }
+}
+
+#features{
+	height: 750px;
+	padding: 0px 100px;
+	padding-top: 50px;
+}
+
+
+#how-it-works{ 
+	height: 800px;
+	padding: 100px 0px;
+	color: #fff;
+}
+
+#how-it-works .col{
+	padding: 0px 40px;
+
+}
+
+#how-it-works .col li{
+	padding-top: 15px;
+}
+
+#how-it-works .col li i{
+	font-size: 52px;
+	padding-top: 1px;
+}
+
+#how-it-works .col li h5{
+	padding-top: 7px;
+	text-align: left;
+}
+
+#testimonials{
+	height: 400px;
+}
+
+.bg-testimonials{
+	background-image: url('../img/smile1.png');
+	height: 100%;
+	background-attachment: fixed;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	z-index: 200;
+
+}
+
+.text-block {
+    position: relative;
+    background: rgba(0, 0, 0, 0.5);
+    height: 100%;
+    width: 100%;
+
+    color: white;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+
+footer{
+	background-color: #359AB0;
+	padding-top: 20px;
+    color: #fff;
 }
 
 .btn-h1-spacing{
