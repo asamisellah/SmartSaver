@@ -1,59 +1,84 @@
-@extends('layouts.login_main')
+@extends('layouts.account_main')
 
-@section('title', 'All goals')
+@section('title', 'My goals')
 
 @section('content')
 
 	<div class="row">
-		<div class="col m10">
-			<h1>All Goals</h1>
-		</div>
-		<div class="col m2">
-			<a href="{{ route('goals.create') }}" class="waves-effect waves-light btn blue btn-h1-spacing ">Create</a>
-		</div>
 		<div class="col m12">
-			<hr>
+			<h3>My Goals</h3>
 		</div>
 	</div>
 
 	<div class="row">
 		<div class="col m12">
-			<table>
-		        <thead>
-		          <tr>
-		              <th>#</th>
-		              <th>Title</th>
-		              <th>Description</th>
-		              {{-- <th>Savings</th> --}}
-		              <th>Target Amount</th>
-		              <th>Target Date</th>
-		          </tr>
-		        </thead>
+				
+				@foreach($goals as $goal)
 
-		        <tbody>
-		          
-					@foreach($goals as $goal)
+					<div>
+						<div class="card-panel hoverable">
 
-						<tr>
-							<th>{{ $goal->id }}</th>
-							<td>{{ $goal->goal_title }}</td>
-							<td>{{ substr($goal->description, 0, 30)}}{{ strlen($goal->description) > 30 ? "..." : ""}}</td>
-							<td>{{ $goal->target_amount }}</td>
-							<td>{{ date( 'M j, Y h:ia', strtotime($goal->created_at)) }}</td>
-							<td><a href="{{ route('goals.show', $goal->id) }}" class="waves-effect waves-light btn blue">View</a> <a href="{{ route('goals.edit', $goal->id) }}" class="waves-effect waves-light btn blue">Edit</a></td>
-						</tr>
+							<div class="card-content">
 
-					@endforeach
+								<div class="row">
+									<div class="col s12 m6">
+										
+										<a href="{{ route('goals.show', $goal->id) }}" class="collection-item avatar">
+											<h4 class="title">{{ $goal->goal_title }}</h4>
+											<p>{{ substr($goal->description, 0, 30)}}{{ strlen($goal->description) > 30 ? "..." : ""}}</p>
 
-		        </tbody>
-		      </table>
+											<div class="chip">Target amount: sh. {{ $goal->target_amount }}</div>
+										</a>
 
-		      <div class="text-center">
-		      	{!! $goals->links(); !!}
+										<p>Created: {{ date( 'M j, Y h:ia', strtotime($goal->created_at)) }}</p>
 
-		      </div>
+									</div>
+
+									<div class="col s12 m6">
+										
+										<div class="row">
+											<div class="col s12 m4 offset-m4">
+												<a class="waves-effect waves-light btn blue btn-spacing2" href="{{ route('goals.edit', $goal->id) }}">Edit</a>
+											</div>
+
+											<div class="col s12 m4">
+												{!! Form::open(['route' => ['goals.destroy', $goal->id], 'method' => 'DELETE']) !!}
+
+						            				{!! Form::submit('Delete', ['class '=> 'waves-effect waves-light btn red btn-spacing2']) !!}
+
+						            			{!! Form::close() !!}
+																	
+											</div>
+										</div>
+
+									</div>
+
+								</div>
+								
+							</div>
+							
+						</div>
+					</div>
+
+				@endforeach
+
+			</div>
+
 		</div>
 	</div>
 
+	
+
+	<div class="text-center">
+		{!! $goals->links(); !!}
+
+	</div>
+
+@endsection
+
+
+@section('scripts')
+
+	
 
 @endsection

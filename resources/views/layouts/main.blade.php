@@ -6,6 +6,8 @@
 
 	@yield('stylesheets')
 
+	{!! Html::style('css/style.css') !!}
+
 </head>
 
 <body>

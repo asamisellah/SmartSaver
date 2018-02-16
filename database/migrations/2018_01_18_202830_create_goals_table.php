@@ -20,8 +20,10 @@ class CreateGoalsTable extends Migration
             $table->string('goal_title', 30);
             $table->text('description')->nullable();
             $table->double('target_amount', 8, 2)->unsigned();
+            $table->double('deposit', 8, 2)->default(0.00)->unsigned();
+            $table->double('withdraw', 8, 2)->nullable()->unsigned()->default(0.00);
+            $table->double('balance', 8, 2)->unsigned()->default(0.00);
             $table->dateTime('target_date');
-            $table->integer('catergory_id')->nullable()->default(0);
             $table->timestamps();
         });
     }

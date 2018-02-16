@@ -15,9 +15,11 @@
 
 Route::group(['middleware' => ['web']], function(){
 
-	Route::get('/', function () {
-    	return view('index');
-	});
+	Auth::routes();
+
+	Route::get('/dashboard', 'HomeController@index')->name('dashboard');
+
+	Route::get('/', 'PagesController@getIndex');
 
 	Route::resource('goals', 'GoalController');
 

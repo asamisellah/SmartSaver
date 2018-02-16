@@ -1,4 +1,4 @@
-@extends('layouts.login_main')
+@extends('layouts.account_main')
 
 @section('title', 'Create New Goal')
 
@@ -13,9 +13,8 @@
 @section('content')
 
 	<div class="row container">
-		<div class="col s8">
-			<h4>Create New Goal</h4>
-			<hr>
+		<div class="card-panel">
+			<h3>Create New Goal</h3>
 
 			{!! Form::open(['route' => 'goals.store', 'data-parsley-validate' => '']) !!}
 				{{Form::label('goal_title', 'Title:')}}
@@ -29,6 +28,9 @@
 
 				{{Form::label('target_date', 'Set Target Date:')}}
 				{{Form::date('target_date', \Carbon\Carbon::now(), ['class'=>'datepicker'])}}
+
+				{{Form::label('deposit', 'Initial Deposit:')}}
+				{{Form::number('deposit', null, ['class'=>'input-field', 'required'=>'', 'placeholder'=>'0.00'])}}
 
 				{{form::submit('Create Goal', ['class'=>'btn waves-effect waves-light', 'style'=>'margin-top: 20px;'])}}
 

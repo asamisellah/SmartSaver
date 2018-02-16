@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Goal;
+use App\Account;
 use Session;
 
 
@@ -21,7 +22,7 @@ class GoalController extends Controller
         // $goals = Goal::all();
 
         // This uses eloquent ORM to do pagination
-        $goals = Goal::orderBy('id', 'desc')->paginate(2);
+        $goals = Goal::orderBy('id', 'desc')->paginate(10);
 
 
 
@@ -63,6 +64,9 @@ class GoalController extends Controller
         $goal->description = $request->description;
         $goal->target_amount = $request->target_amount;
         $goal->target_date = $request->target_date;
+        $goal->deposit = $request->deposit;
+
+        $goal->balance += $request->deposit;
 
         $goal->save();
 
@@ -129,6 +133,8 @@ class GoalController extends Controller
         $goal->description = $request->input('description');
         $goal->target_amount = $request->input('target_amount');
         $goal->target_date = $request->input('target_date');
+        $goal->deposit = $request->input('deposit');
+        $goal->balance += $request->input('deposit');
 
         //save the update
 

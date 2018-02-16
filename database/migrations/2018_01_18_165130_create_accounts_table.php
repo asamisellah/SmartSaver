@@ -17,10 +17,11 @@ class CreateAccountsTable extends Migration
             
             $table->increments('id');
             $table->integer('goal_id')->nullable();
-            $table->double('deposit', 8, 2)->default(100.00)->unsigned();
+            $table->double('deposit', 8, 2)->default(0.00)->unsigned();
             $table->double('withdraw', 8, 2)->nullable()->unsigned()->default(0.00);
             $table->double('balance', 8, 2)->unsigned()->default(0.00);
             $table->timestamps();
+
         });
     }
 

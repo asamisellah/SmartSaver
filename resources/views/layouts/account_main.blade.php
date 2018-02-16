@@ -6,33 +6,35 @@
 
 	@yield('stylesheets')
 
+	{!! Html::style('css/styleAcc.css') !!}
+
 </head>
 
 <body>
 
 	<header>
 
-		{{-- @include('partials._nav') --}}
+		@include('partials._aNav')
 
 	</header>
+
 	
 	<main>
 
 		<div class="row">
 			
-			<div class="col s12 m4 l3" id="side-nav">
+			<div class="col m4 l3" id="side-nav">
 
-				{{-- @include('partials._sidenav') --}}
+				@include('partials._sidenav')
 
 			</div>
 
-			<div class="col s12 m8 l9" id="content">
+			<div class="col m8 l9" id="content">
 			
 				@yield('content')
+				@include('partials._messages')
 
 			</div>
-
-			@include('partials._messages')
 
 		</div>
 
@@ -40,7 +42,7 @@
 	</main>
 
 	
-	{{-- @include('partials._footer') --}}
+	{{-- @include('partials._aFooter') --}}
 
 	
 	
