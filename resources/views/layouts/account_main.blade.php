@@ -42,7 +42,11 @@
 	</main>
 
 	
+<<<<<<< HEAD:resources/views/layouts/account_main.blade.php
 	{{-- @include('partials._aFooter') --}}
+=======
+	{{-- @include('partials._footer') --}}
+>>>>>>> 641f13b5b16730aef786242ee9ceb351f95b13d3:resources/views/layouts/login_main.blade.php
 
 	
 	
